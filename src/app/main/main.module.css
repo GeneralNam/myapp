@@ -1,0 +1,84 @@
+/* components/MainContent.module.css */
+.mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20vh;
+    height: 100%;
+    /* 헤더 높이를 뺀 전체 높이 */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #f3f3f3;
+    /* 다크 테마 배경색 */
+}
+
+.contentContainer {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 3rem;
+    line-height: 1.3;
+}
+
+.searchContainer {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #222222;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
+}
+
+.searchButton {
+    padding: 1rem 1.5rem;
+    background-color: #333333;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.searchButton:hover {
+    background-color: #444444;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .searchContainer {
+        flex-direction: column;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .searchInput {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .searchButton {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+    }
+}

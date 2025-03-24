@@ -1,0 +1,166 @@
+.container {
+    width: 100%;
+    padding: 0 24px 24px;
+    background-color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.title {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0;
+    color: #222222;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.currentSubscription {
+    margin-top: 16px;
+}
+
+.paymentHistorySection {
+    margin-top: 32px;
+}
+
+.sectionHeader {
+    margin-bottom: 12px;
+}
+
+.sectionContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: #222222;
+}
+
+.changeButton {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin-left: 4px;
+}
+
+.yearlyButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.viewButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.linkButton,
+.viewAllButton,
+.refundButton {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+/* 테이블 스타일 */
+.subscriptionTable,
+.paymentTable {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.tableHeader {
+    display: flex;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.headerCell,
+.tableCell {
+    padding: 12px 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.headerCell {
+    font-weight: 500;
+    color: #333;
+}
+
+.tableRow {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tableRow:last-child {
+    border-bottom: none;
+}
+
+.receiptButton {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.subscribeButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.subscribeButton {
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}

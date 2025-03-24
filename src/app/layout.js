@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import ModalContainer from "./components/modal/ModalContainer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +21,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="withNavbar"> {/* 글로벌 CSS에 .withNavbar { display: flex; } 추가 필요 */}
+          <Navbar />
+          <main className="mainContent"> {/* 글로벌 CSS에 .mainContent 스타일 추가 필요 */}
+
+            {children}
+          </main>
+        </div>
+        <ModalContainer />
       </body>
     </html>
   );

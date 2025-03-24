@@ -1,0 +1,170 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.modalContainer {
+    background-color: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.3s ease-out;
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.closeButton:hover {
+    transform: rotate(90deg);
+}
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalTitle {
+    font-size: 18px;
+
+    color: #222222;
+
+    text-align: center;
+}
+
+.modalDescription {
+    font-size: 18px;
+    color: #222222;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.optionsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.optionButton {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.optionButton:hover {
+    border-color: #999999;
+}
+
+
+
+.selectedOption {
+    border-color: #222222;
+    border-width: 2px;
+    background-color: #222222;
+    color: white;
+}
+
+.selectedDarkOption {
+    background-color: #333333;
+    border-color: #ffffff;
+    border-width: 2px;
+}
+
+.feedbackTextarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    resize: none;
+}
+
+.feedbackTextarea:focus {
+    outline: none;
+    border-color: #999999;
+}
+
+.submitButton {
+    width: 30%;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    background-color: #222222;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submitButton:hover {
+    background-color: #333333;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 576px) {
+    .modalContainer {
+        width: 90%;
+        padding: 24px;
+    }
+
+    .submitButton {
+        width: 100%;
+    }
+}

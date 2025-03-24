@@ -1,0 +1,174 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.25s ease-out;
+}
+
+.modalContainer {
+    background-color: white;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+}
+
+.modalLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    background-color: #222222;
+    color: white;
+    width: 20%;
+    min-height: 500px;
+    padding: 0;
+    position: relative;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 4px;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.profileName {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subscription {
+    color: #c74646;
+    border: 1.5px solid #c74646;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 1px 6px;
+}
+
+.profileEmail {
+    color: #a1a1a1;
+    font-size: 14px;
+}
+
+.profileMenu {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.profileMenuButton {
+    background: none;
+    border: none;
+    color: #f3f3f3;
+    padding: 12px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding-left: 24px;
+    transition: background-color 0.2s ease;
+}
+
+.profileMenuButton:last-child {
+    border-bottom: none;
+}
+
+.profileMenuButton:hover {
+    background-color: #333333;
+}
+
+.profileLogoutButton {
+    background: none;
+    border: none;
+    color: #f3f3f3;
+    padding: 12px 12px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.profileLogoutButton:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modalContainer {
+        flex-direction: column;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modalLeft {
+        width: 100%;
+        min-height: 150px;
+    }
+
+
+
+    .profileLogoutButton {
+        position: static;
+        margin-top: auto;
+        padding: 16px;
+    }
+}
