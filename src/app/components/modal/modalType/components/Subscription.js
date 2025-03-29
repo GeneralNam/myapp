@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './Subscription.module.css';
+import { useRouter } from 'next/navigation';
 
-const SubscriptionPage = ({ isOpen, onClose }) => {
+const SubscriptionPage = ({ isOpen, onClose, setIsYearlyModalOpen }) => {
+    const router = useRouter();
     // 현재 구독 정보
     const currentSubscription = {
         plan: '트레이더',
@@ -53,30 +55,32 @@ const SubscriptionPage = ({ isOpen, onClose }) => {
             <div className={styles.currentSubscription}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.sectionContainer}>
-                        <h2 className={styles.sectionTitle}>현재 사용 중인 요금제</h2>
-                        <button className={styles.changeButton}>
-                            요금제 변경 <span className={styles.arrow}>→</span>
-                        </button>
-                    </div>
-                    <div className={styles.yearlyButton}>
-                        <button className={styles.linkButton}>연간 결제로 변경</button>
+                        <div className={styles.leftGroup}>
+                            <h2 className={styles.sectionTitle}>현재 사용 중인 요금제</h2>
+                            <button className={styles.changeButton}>
+                                요금제 변경 <span className={styles.arrow}>→</span>
+                            </button>
+                        </div>
+                        <div className={styles.rightGroup}>
+                            <button className={styles.linkButton} onClick={() => setIsYearlyModalOpen(true)}>연간 결제로 변경</button>
+                        </div>
                     </div>
                 </div>
 
                 <div className={styles.subscriptionTable}>
                     <div className={styles.tableHeader}>
-                        <div className={styles.headerCell} style={{ width: '15%' }}>요금제</div>
-                        <div className={styles.headerCell} style={{ width: '15%' }}>결제 금액</div>
-                        <div className={styles.headerCell} style={{ width: '15%' }}>결제 수단</div>
-                        <div className={styles.headerCell} style={{ width: '25%' }}>구독 시작일</div>
-                        <div className={styles.headerCell} style={{ width: '30%' }}>다음 결제일</div>
+                        <div className={styles.headerCell} style={{ width: '20%' }}>요금제</div>
+                        <div className={styles.headerCell} style={{ width: '20%' }}>결제 금액</div>
+                        <div className={styles.headerCell} style={{ width: '20%' }}>결제 수단</div>
+                        <div className={styles.headerCell} style={{ width: '20%' }}>구독 시작일</div>
+                        <div className={styles.headerCell} style={{ width: '20%' }}>다음 결제일</div>
                     </div>
                     <div className={styles.tableRow}>
-                        <div className={styles.tableCell} style={{ width: '15%' }}>{currentSubscription.plan}</div>
-                        <div className={styles.tableCell} style={{ width: '15%' }}>{currentSubscription.amount}</div>
-                        <div className={styles.tableCell} style={{ width: '15%' }}>{currentSubscription.paymentMethod}</div>
-                        <div className={styles.tableCell} style={{ width: '25%' }}>{currentSubscription.startDate}</div>
-                        <div className={styles.tableCell} style={{ width: '30%' }}>{currentSubscription.nextPaymentDate}</div>
+                        <div className={styles.tableCell} style={{ width: '20%' }}>{currentSubscription.plan}</div>
+                        <div className={styles.tableCell} style={{ width: '20%' }}>{currentSubscription.amount}</div>
+                        <div className={styles.tableCell} style={{ width: '20%' }}>{currentSubscription.paymentMethod}</div>
+                        <div className={styles.tableCell} style={{ width: '20%' }}>{currentSubscription.startDate}</div>
+                        <div className={styles.tableCell} style={{ width: '20%' }}>{currentSubscription.nextPaymentDate}</div>
                     </div>
                 </div>
             </div>
@@ -84,14 +88,16 @@ const SubscriptionPage = ({ isOpen, onClose }) => {
             <div className={styles.paymentHistorySection}>
                 <div className={styles.sectionHeader}>
                     <div className={styles.sectionContainer}>
-                        <h2 className={styles.sectionTitle}>결제 내역</h2>
-                        <button className={styles.changeButton}>
-                            결제 수단 변경 <span className={styles.arrow}>→</span>
-                        </button>
-                    </div>
-                    <div className={styles.viewButtons}>
-                        <button className={styles.viewAllButton}>결제 내역 모두 보기</button>
-                        <button className={styles.refundButton}>환불하기</button>
+                        <div className={styles.leftGroup}>
+                            <h2 className={styles.sectionTitle}>결제 내역</h2>
+                            <button className={styles.changeButton}>
+                                결제 수단 변경 <span className={styles.arrow}>→</span>
+                            </button>
+                        </div>
+                        <div className={styles.rightGroup}>
+                            <button className={styles.viewAllButton} onClick={() => router.push('/paymenthistory')}>결제 내역 모두 보기</button>
+                            <button className={styles.refundButton}>환불하기</button>
+                        </div>
                     </div>
                 </div>
 

@@ -42,14 +42,29 @@
 }
 
 .sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 12px;
 }
 
 .sectionContainer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.leftGroup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.rightGroup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .sectionTitle {
@@ -76,15 +91,13 @@
 
 .yearlyButton {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 12px;
+    align-items: center;
 }
 
 .viewButtons {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     gap: 16px;
-    margin-bottom: 12px;
 }
 
 .linkButton,
