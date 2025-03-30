@@ -1,5 +1,6 @@
 // app/api/upbit/route.js
 import { NextResponse } from 'next/server';
+import { createClient } from '@/app/utils/supabase/server';
 
 export async function GET() {
     const options = {
@@ -22,6 +23,9 @@ export async function GET() {
 
         const data = await response.json();
         console.log(data);
+
+
+
         return NextResponse.json(data);
     } catch (error) {
         console.error('API 호출 오류:', error);
