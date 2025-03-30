@@ -1,9 +1,18 @@
-// components/MainContent.js
+'use client';
+
 import React from 'react';
 import styles from './main.module.css';
+import SearchBar from '../components/searchBar';
 
 const MainContent = () => {
+    const handleCoinSelect = (coin) => {
+        console.log('선택된 코인:', coin);
+    };
 
+    const handleAnalyze = (coinName) => {
+        console.log('분석할 코인:', coinName);
+        // 분석 페이지로 이동하거나 분석 함수 호출
+    };
 
     return (
         <div className={styles.mainContent}>
@@ -13,12 +22,10 @@ const MainContent = () => {
                 </h1>
 
                 <div className={styles.searchContainer}>
-                    <input
-                        type="text"
-                        className={styles.searchInput}
-                        placeholder="종목을 검색하세요"
+                    <SearchBar
+                        onSelect={handleCoinSelect}
+                        onAnalyze={handleAnalyze}
                     />
-                    <button className={styles.searchButton}>분석하기</button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './searchBar.module.css';
 
-export default function CoinSearch({ onSelect }) {
+const SearchBar = ({ onSelect, onAnalyze }) => {
     const [input, setInput] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +33,6 @@ export default function CoinSearch({ onSelect }) {
             }
         };
 
-        // 디바운싱 적용
         const timer = setTimeout(() => {
             fetchSuggestions();
         }, 300);
@@ -47,31 +46,49 @@ export default function CoinSearch({ onSelect }) {
         if (onSelect) onSelect(coin);
     };
 
+    const handleAnalyze = () => {
+        if (onAnalyze) onAnalyze(input);
+    };
+
     return (
-        <div className={styles.searchContainer}>
-            <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="코인명 검색"
-                className={styles.searchInput}
-            />
+        <div className={styles.searchBarContainer}>
+            <div className={styles.inputButtonWrapper}>
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder="종목을 검색하세요"
+                    className={styles.searchInput}
+                />
+                <button
+                    className={styles.searchButton}
+                    onClick={handleAnalyze}
+                >
+                    분석하기
+                </button>
+            </div>
 
-            {isLoading && <div className={styles.loader}>검색 중...</div>}
-
-            {!isLoading && suggestions.length > 0 && (
-                <ul className={styles.suggestionsList}>
-                    {suggestions.map((coin) => (
-                        <li
-                            key={coin.id}
-                            className={styles.suggestionItem}
-                            onClick={() => handleSelectCoin(coin)}
-                        >
-                            {coin.name}
-                        </li>
-                    ))}
-                </ul>
+            {(isLoading || suggestions.length > 0) && (
+                <div className={styles.suggestionsContainer}>
+                    {isLoading ? (
+                        <div className={styles.loader}>검색 중...</div>
+                    ) : (
+                        <ul className={styles.suggestionsList}>
+                            {suggestions.map((coin) => (
+                                <li
+                                    key={coin.id}
+                                    className={styles.suggestionItem}
+                                    onClick={() => handleSelectCoin(coin)}
+                                >
+                                    {coin.name}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             )}
         </div>
     );
-}
+};
+
+export default SearchBar;

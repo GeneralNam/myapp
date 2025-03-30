@@ -32,8 +32,9 @@
     max-width: 600px;
     margin: 0 auto;
     border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #222222;
+    overflow: visible;
+    /* hidden에서 visible로 변경 */
+
 }
 
 .searchInput {

@@ -4,7 +4,8 @@ import { createClient } from '@/app/utils/supabase/server';
 
 
 export async function GET(request) {
-    const supabase = createClient();
+
+    const supabase = await createClient();
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q');
 
@@ -20,7 +21,7 @@ export async function GET(request) {
             .limit(10);
 
         if (error) throw error;
-
+        console.log('data', data);
         return NextResponse.json({ data });
     } catch (error) {
         console.error('Search API error:', error);

@@ -1,37 +1,67 @@
-.searchContainer {
-    position: relative;
+.searchBarContainer {
     width: 100%;
-    max-width: 400px;
+    position: relative;
+}
+
+.inputButtonWrapper {
+    display: flex;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid #222222;
+    overflow: hidden;
 }
 
 .searchInput {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: #f3f3f3;
 }
 
-.suggestionsList {
+.searchButton {
+    padding: 1rem 1.5rem;
+    background-color: #333333;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.searchButton:hover {
+    background-color: #444444;
+}
+
+.suggestionsContainer {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
+    margin-top: 4px;
+    border-radius: 12px;
     background-color: white;
-    border: 1px solid #ddd;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.suggestionsList {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .suggestionItem {
-    padding: 10px;
+    padding: 1rem;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-align: left;
+    color: #333;
 }
 
 .suggestionItem:hover {
@@ -39,7 +69,29 @@
 }
 
 .loader {
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
     color: #666;
+}
+
+@media (max-width: 768px) {
+    .inputButtonWrapper {
+        flex-direction: column;
+        border-radius: 8px;
+    }
+
+    .searchInput {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .searchButton {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .suggestionsContainer {
+        position: relative;
+        margin-top: 4px;
+    }
 }
